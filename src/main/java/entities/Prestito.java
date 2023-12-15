@@ -14,7 +14,7 @@ import java.util.UUID;
     @JoinColumn(name ="numero_tessera_utente",nullable = false)
     private Utente utente;
     @OneToOne
-    @JoinColumn(name = "isbn",nullable = false)
+    @JoinColumn(name = "codice_isbn",nullable = false)
     private Catalogo elementoPrestato;
     @Column(name="data_inizio_prestito", nullable = false)
     private LocalDate dataInizioPrestito;
