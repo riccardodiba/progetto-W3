@@ -1,17 +1,30 @@
 package entities;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
+@Entity
 class Utente {
+    @Id
+    @GeneratedValue
+    private UUID numeroTessera;
+    @Column (name = "nome",nullable = false)
     private String nome;
+    @Column (name = "cognome",nullable = false)
     private String cognome;
+    @Column (name = "data_nascita",nullable = false)
     private LocalDate dataNascita;
-    private int numeroTessera;
+    @OneToMany(mappedBy = "utente", cascade = CascadeType.ALL)
+    private List<Prestito> prestiti = new ArrayList<>();
 
-    public Utente(String nome, String cognome, LocalDate dataNascita, int numeroTessera) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.dataNascita = dataNascita;
+    public UUID getNumeroTessera() {
+        return numeroTessera;
+    }
+
+    public void setNumeroTessera(UUID numeroTessera) {
         this.numeroTessera = numeroTessera;
     }
 
@@ -39,21 +52,32 @@ class Utente {
         this.dataNascita = dataNascita;
     }
 
-    public int getNumeroTessera() {
-        return numeroTessera;
+    public List<Prestito> getPrestiti() {
+        return prestiti;
     }
 
-    public void setNumeroTessera(int numeroTessera) {
-        this.numeroTessera = numeroTessera;
+    public void setPrestiti(List<Prestito> prestiti) {
+        this.prestiti = prestiti;
     }
 
     @Override
     public String toString() {
         return "Utente{" +
-                "nome='" + nome + '\'' +
+                "numeroTessera=" + numeroTessera +
+                ", nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", dataNascita=" + dataNascita +
-                ", numeroTessera=" + numeroTessera +
+                ", prestiti=" + prestiti +
                 '}';
+    }
+
+    public Utente(UUID numeroTessera, String nome, String cognome, LocalDate dataNascita, List<Prestito> prestiti) {
+        this.numeroTessera = numeroTessera;
+        this.nome = nome;
+        this.cognome = cognome;
+        this.dataNascita = dataNascita;
+        this.prestiti = prestiti;
+
+
     }
 }

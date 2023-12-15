@@ -1,5 +1,9 @@
 package entities;
 
+import javax.persistence.Entity;
+
+@Entity
+
 public class Libro extends Catalogo{
 
     private String autore;

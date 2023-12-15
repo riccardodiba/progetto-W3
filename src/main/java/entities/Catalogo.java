@@ -7,8 +7,8 @@ public class Catalogo {
     private int annoPubblicazione;
     private int numeroPagine;
 
-    public Catalogo(String codiceIsbnisbn, String titolo, int annoPubblicazione, int numeroPagine) {
-        this.codiceIsbn = codiceIsbnisbn;
+    public Catalogo(String codiceIsbn, String titolo, int annoPubblicazione, int numeroPagine) {
+        this.codiceIsbn = codiceIsbn;
         this.titolo = titolo;
         this.annoPubblicazione = annoPubblicazione;
         this.numeroPagine = numeroPagine;
