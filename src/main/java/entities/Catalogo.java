@@ -23,7 +23,7 @@ import java.util.UUID;
         @Column(name = "pagine")
         private int pagine;
 
-        @OneToOne(mappedBy = "elementoBiblio", cascade = CascadeType.ALL)
+        @OneToOne(mappedBy = "Catalogo", cascade = CascadeType.ALL)
         private Prestito prestito;
 
 
@@ -38,7 +38,7 @@ import java.util.UUID;
             this.pagine = pagine;
         }
 
-        public Catalogo(String codiceIsbn, String titolo, int annoPubblicazione, int numeroPagine) {
+        public Catalogo(String isbn, String titolo, int annoPubblicazione, int numeroPagine) {
         }
 
 
